@@ -5,31 +5,29 @@ let basket = [];
 const maxItems = 5;
 
 function addItem(item) {
-	basket.push(item)
+	basket.push(item);
 	return true;
 }
-console.log('Testing adding a new item to the basket: ' , addItem('soap'));
+console.log('Testing adding a new item to the basket: ', addItem('soap'));
 
-function listItems(){
-let i = 0;
-while (i < basket.length) {
-    console.log(basket[i]);
-    i++;
-}    
+function listItems() {
+	let i = 0;
+	while (i < basket.length) {
+		console.log(basket[i]);
+		i++;
+	}
 }
 
-function empty(){
-basket.splice(0, basket.length);
+function empty() {
+	basket.splice(0, basket.length);
 }
 
-
-function isFull(){
-    return basket.length >= maxItems;
+function isFull() {
+	return basket.length >= maxItems;
 }
 addItem('soap');
 addItem('detergent');
 addItem('gloves');
-
 
 console.log('Testing isFull function:', isFull());
 addItem('kitty litter');
@@ -39,10 +37,8 @@ console.log('Testing isFull function2:', isFull());
 
 console.log('Testing listItems function: ', listItems());
 
-console.log('Testing removing items from basket: ' , empty());
-console.log('Testing listItems after removing all items',  listItems());
-
-
+console.log('Testing removing items from basket: ', empty());
+console.log('Testing listItems after removing all items', listItems());
 
 // DO NOT MODIFY
 // Used for automated testing
