@@ -18,10 +18,9 @@ while (i < basket.length) {
 }    
 }
 
-
-
-
-
+function empty(){
+basket.splice(0, basket.length);
+}
 
 
 function isFull(){
@@ -40,6 +39,8 @@ console.log('Testing isFull function2:', isFull());
 
 console.log('Testing listItems function: ', listItems());
 
+console.log('Testing removing items from basket: ' , empty());
+console.log('Testing listItems after removing all items',  listItems());
 
 
 
