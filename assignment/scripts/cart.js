@@ -11,12 +11,18 @@ function addItem(item) {
 console.log('Testing adding a new item to the basket: ' , addItem('soap'));
 
 function isFull(){
-    if (basket.length < maxItems){
-        return false;
-    }
-    else return true;
+    return basket.length >= maxItems;
 }
+addItem('soap');
+addItem('detergent');
+addItem('gloves');
 
+
+console.log('Testing isFull function:', isFull());
+addItem('kitty litter');
+addItem('puppy pads');
+addItem('spatula');
+console.log('Testing isFull function2:', isFull());
 
 
 
