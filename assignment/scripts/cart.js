@@ -2,12 +2,27 @@ console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
 let basket = [];
+const maxItems = 5;
 
 function addItem(item) {
 	basket.push(item)
 	return basket;
 }
 console.log('Testing adding a new item to the basket: ' , addItem('soap'));
+
+function isFull(){
+    if (basket.length < maxItems){
+        return false;
+    }
+    else return true;
+}
+
+
+
+
+
+
+
 // DO NOT MODIFY
 // Used for automated testing
 try {
