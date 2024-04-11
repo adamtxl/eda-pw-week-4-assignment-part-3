@@ -6,9 +6,23 @@ const maxItems = 5;
 
 function addItem(item) {
 	basket.push(item)
-	return basket;
+	return true;
 }
 console.log('Testing adding a new item to the basket: ' , addItem('soap'));
+
+function listItems(){
+let i = 0;
+while (i < basket.length) {
+    console.log(basket[i]);
+    i++;
+}    
+}
+
+
+
+
+
+
 
 function isFull(){
     return basket.length >= maxItems;
@@ -24,7 +38,7 @@ addItem('puppy pads');
 addItem('spatula');
 console.log('Testing isFull function2:', isFull());
 
-
+console.log('Testing listItems function: ', listItems());
 
 
 
