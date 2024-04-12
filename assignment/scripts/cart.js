@@ -4,17 +4,22 @@ console.log('***** Cart Functions *****');
 let basket = [];
 const maxItems = 5;
 
+empty();							//started with an empty basket
 function addItem(item) {
-	basket.push(item);
-	return true;
+	if (basket.length > maxItems) { //added conditional to make sure that we're under max items
+		basket.push(item);
+	return true;					
+} else return false;
 }
 console.log('Testing adding a new item to the basket: ', addItem('soap'));
+console.log('Items in cart: ' , listItems(basket));
 
 listItems(basket);
 //function declaration --gets "hoisted"
 function listItems(array) {
 	// console.log(`Cart Items (max items: ${maxItems}): `);
-	const cartMessage = () => `Cart Items Updated (max items: ${maxItems}): `;
+	const totalInCart = array.length;
+	const cartMessage = () => `Cart Items Updated (max items: ${maxItems}). You currently have ${totalInCart} item(s) `;
 	console.log(cartMessage());
 	let i = 0;
 	while (i < array.length) {
@@ -22,7 +27,6 @@ function listItems(array) {
 		i++;
 	}
 }
-
 
 // function expression -- does not get hoisted
 // const listItems = (array) => {
@@ -32,30 +36,23 @@ function listItems(array) {
 // 	}
 //   }
 
-
-
-
-
 function empty() {
-	basket.splice(0, basket.length);
+	basket.splice(0, basket.length); //this takes the basket array and removes every element starting at 0
 }
 
 function isFull() {
-	return basket.length >= maxItems;
+	return basket.length >= maxItems; //if the basket is equal to or greater than max items it returns true
 }
 addItem('soap');
 addItem('detergent');
 addItem('gloves');
-
-console.log('Testing isFull function:', isFull());
+console.log('Testing isFull function:', isFull()); //added items and testing if cat is full
 addItem('kitty litter');
 addItem('puppy pads');
 addItem('spatula');
-console.log('Testing isFull function2:', isFull());
-
-console.log('Testing listItems function: ', listItems(basket));
-
-console.log('Testing removing items from basket: ', empty());
+console.log('Testing isFull function2:', isFull()); //added more items to confirm that ifFull will return false.
+console.log('Testing listItems function: ', listItems(basket)); //confirming items in basket
+empty(); //emptying the basket
 console.log('Testing listItems after removing all items', listItems(basket));
 
 // DO NOT MODIFY
