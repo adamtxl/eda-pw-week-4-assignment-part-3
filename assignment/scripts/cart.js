@@ -10,13 +10,31 @@ function addItem(item) {
 }
 console.log('Testing adding a new item to the basket: ', addItem('soap'));
 
-function listItems() {
+listItems(basket);
+//function declaration --gets "hoisted"
+function listItems(array) {
+	// console.log(`Cart Items (max items: ${maxItems}): `);
+	const cartMessage = () => `Cart Items Updated (max items: ${maxItems}): `;
+	console.log(cartMessage());
 	let i = 0;
-	while (i < basket.length) {
-		console.log(basket[i]);
+	while (i < array.length) {
+		console.log(`\t-Item ${i}: ${array[i]}`);
 		i++;
 	}
 }
+
+
+// function expression -- does not get hoisted
+// const listItems = (array) => {
+// 	console.log(`Cart Items (max items: ${maxItems}): `);
+// 	for (i = 0; i < array.length; i++) {
+// 	  console.log(`\tItem ${i}: ${array[i]}`);
+// 	}
+//   }
+
+
+
+
 
 function empty() {
 	basket.splice(0, basket.length);
@@ -35,10 +53,10 @@ addItem('puppy pads');
 addItem('spatula');
 console.log('Testing isFull function2:', isFull());
 
-console.log('Testing listItems function: ', listItems());
+console.log('Testing listItems function: ', listItems(basket));
 
 console.log('Testing removing items from basket: ', empty());
-console.log('Testing listItems after removing all items', listItems());
+console.log('Testing listItems after removing all items', listItems(basket));
 
 // DO NOT MODIFY
 // Used for automated testing
