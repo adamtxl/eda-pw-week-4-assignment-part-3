@@ -6,13 +6,13 @@ const maxItems = 5;
 
 empty();							//started with an empty basket
 function addItem(item) {
-	if (basket.length > maxItems) { //added conditional to make sure that we're under max items
+	if (basket.length < maxItems) { //added conditional to make sure that we're under max items
 		basket.push(item);
 	return true;					
 } else return false;
 }
 console.log('Testing adding a new item to the basket: ', addItem('soap'));
-console.log('Items in cart: ' , listItems(basket));
+listItems(basket);
 
 listItems(basket);
 //function declaration --gets "hoisted"
