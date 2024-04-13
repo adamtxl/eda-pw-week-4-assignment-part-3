@@ -4,12 +4,13 @@ console.log('***** Cart Functions *****');
 let basket = [];
 const maxItems = 5;
 
-empty();							//started with an empty basket
+empty(); //started with an empty basket
 function addItem(item) {
-	if (basket.length < maxItems) { //added conditional to make sure that we're under max items
+	if (basket.length < maxItems) {
+		//added conditional to make sure that we're under max items
 		basket.push(item);
-	return true;					
-} else return false;
+		return true;
+	} else return false;
 }
 console.log('Testing adding a new item to the basket: ', addItem('soap'));
 listItems(basket);
@@ -43,6 +44,13 @@ function empty() {
 function isFull() {
 	return basket.length >= maxItems; //if the basket is equal to or greater than max items it returns true
 }
+
+function removeItem(item) {
+	itemToRemove = basket.indexOf(item);
+	removedItem = basket.splice(itemToRemove, 1	);
+	console.log('Item ', removedItem , 'has been removed from the cart.');
+}
+
 addItem('soap');
 addItem('detergent');
 addItem('gloves');
@@ -52,8 +60,12 @@ addItem('puppy pads');
 addItem('spatula');
 console.log('Testing isFull function2:', isFull()); //added more items to confirm that ifFull will return false.
 console.log('Testing listItems function: ', listItems(basket)); //confirming items in basket
+removeItem('spatula');
+console.log('Testing listItems after removing the spatula', listItems(basket));
 empty(); //emptying the basket
 console.log('Testing listItems after removing all items', listItems(basket));
+
+
 
 // DO NOT MODIFY
 // Used for automated testing
