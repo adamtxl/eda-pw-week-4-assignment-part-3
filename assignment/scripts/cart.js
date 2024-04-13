@@ -46,26 +46,32 @@ function isFull() {
 }
 
 function removeItem(item) {
-	itemToRemove = basket.indexOf(item);
-	removedItem = basket.splice(itemToRemove, 1	);
-	console.log('Item ', removedItem , 'has been removed from the cart.');
+	let itemToRemove = basket.indexOf(item);
+
+	if (itemToRemove !== -1) {
+		// Remove the item using splice
+		let removedItem = basket.splice(itemToRemove, 1);
+		console.log('Item', removedItem[0], 'has been removed from the cart.');
+	} else {
+		console.log('Undefined', item, 'is not in the cart.');
+	}
 }
 
 addItem('soap');
 addItem('detergent');
 addItem('gloves');
 console.log('Testing isFull function:', isFull()); //added items and testing if cat is full
-addItem('kitty litter');
-addItem('puppy pads');
+// addItem('kitty litter');
+// addItem('puppy pads');
 addItem('spatula');
 console.log('Testing isFull function2:', isFull()); //added more items to confirm that ifFull will return false.
-console.log('Testing listItems function: ', listItems(basket)); //confirming items in basket
+console.log('1Testing listItems function: ', listItems(basket)); //confirming items in basket
+listItems(basket);
 removeItem('spatula');
-console.log('Testing listItems after removing the spatula', listItems(basket));
+listItems(basket);
+console.log('2Testing listItems after removing the spatula', listItems(basket));
 empty(); //emptying the basket
 console.log('Testing listItems after removing all items', listItems(basket));
-
-
 
 // DO NOT MODIFY
 // Used for automated testing
